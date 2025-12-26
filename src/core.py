@@ -338,7 +338,7 @@ def perform_prediction(model_name, new_dataset_name, intervals=(12, 24, 72, 144)
                     date_data = comXD[date_cols]
                     
                     time_col_name = f"Time{w-1}" 
-                    comXD[time_col_name] = t
+                    comXD.loc[:, time_col_name] = t
                     
                     cols_to_drop = ['PointID'] + date_cols
                     new_data = comXD.drop(columns=cols_to_drop)

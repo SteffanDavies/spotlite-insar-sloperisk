@@ -221,7 +221,7 @@ def process_data(Wx, interval, w):
     # 5. Formatting Dates
     date_cols = [f'D{i+1}' for i in range(w)]
     for col in date_cols:
-        new_dataset[col] = new_dataset[col].dt.strftime('%Y%m%d')
+        new_dataset.loc[:, col] = new_dataset[col].dt.strftime('%Y%m%d')
         
     # 6. Reorder Columns
     time_cols = [f'Time{i+1}' for i in range(w-1)]
