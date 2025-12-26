@@ -32,3 +32,15 @@ jobs:
     # 5. Run the Main Script
     - name: Run Analysis
       run: uv run main.py
+
+# --- ADD THIS NEW SECTION BELOW ---
+    - name: Upload Results
+      uses: actions/upload-artifact@v4
+      if: always()  # Uploads even if the script fails partway
+      with:
+        name: analysis-results
+        path: |
+          data/*.pkl
+          data/*.csv
+          data/*.gpkg
+          data/*.tiff
