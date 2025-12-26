@@ -21,9 +21,9 @@ jobs:
       with:
         version: "latest"
 
-    # 3. Set up Python 3.10
+    # 3. Set up Python 3.13
     - name: Set up Python
-      run: uv python install 3.10
+      run: uv python install 3.13
 
     # 4. Install Dependencies
     - name: Install Libraries
