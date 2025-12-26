@@ -1,0 +1,33 @@
+name: Test Slope Risk Analysis
+
+# Run this test whenever code is pushed to main or develop
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  run-analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+    # 1. Download your code from the repository
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # 2. Install uv (the tool used for dependencies)
+    - name: Install uv
+      run: curl -LsSf https://astral.sh/uv/install.sh | sh
+
+    # 3. Set up Python 3.10 using uv
+    - name: Set up Python
+      run: ~/.cargo/bin/uv python install 3.10
+
+    # 4. Install your project dependencies (pandas, sklearn, etc.)
+    - name: Install Libraries
+      run: ~/.cargo/bin/uv sync
+
+    # 5. Run your main script to test if it works
+    - name: Run Analysis
+      run: ~/.cargo/bin/uv run main.py
