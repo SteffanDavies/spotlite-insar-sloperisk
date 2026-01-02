@@ -1,4 +1,4 @@
-name: Test Slope Risk Analysis
+name: Run Slope Risk Analysis (Docker)
 
 on:
   push:
@@ -7,40 +7,32 @@ on:
     branches: [ main ]
 
 jobs:
-  run-analysis:
+  docker-risk-analysis:
     runs-on: ubuntu-latest
 
     steps:
-    # 1. Download your code
+    # 1. Download code
     - name: Checkout code
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
-    # 2. Install uv (The Official Way)
-    - name: Install uv
-      uses: astral-sh/setup-uv@v3
-      with:
-        version: "latest"
+    # 2. Build the Docker Image
+    - name: Build Docker Image
+      run: docker build -t risk-analysis .
 
-    # 3. Set up Python 3.13
-    - name: Set up Python
-      run: uv python install 3.13
-
-    # 4. Install Dependencies
-    - name: Install Libraries
-      run: uv sync
-
-    # 5. Run the Main Script
+    # 3. Run the Container
+    # Mounts 'data' so results are saved to the runner
     - name: Run Analysis
-      run: uv run main.py
+      run: docker run -v ${{ github.workspace }}/data:/app/data risk-analysis
 
-# --- ADD THIS NEW SECTION BELOW ---
-    - name: Upload Results
+    # 4. Upload Results
+    - name: Upload Artifacts
       uses: actions/upload-artifact@v4
-      if: always()  # Uploads even if the script fails partway
+      if: always()
       with:
-        name: analysis-results
+        name: risk-analysis-results
         path: |
           data/*.pkl
           data/*.csv
-          data/*.gpkg
           data/*.tiff
+          data/*.png
+          data/*.gpkg

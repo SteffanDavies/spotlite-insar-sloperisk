@@ -1,6 +1,10 @@
+.venv/
 __pycache__/
-*.csv
 *.pkl
-*.gpkg
-*.model
-.uv/
+*.tiff
+*.png
+.DS_Store
+.python-version
+# Allow data files for GitHub analysis
+!data/*.csv
+!data/*.gpkg
