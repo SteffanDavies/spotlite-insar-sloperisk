@@ -30,7 +30,7 @@ This project uses **[uv](https://github.com/astral-sh/uv)** for high-speed depen
 
 1. **Install uv** (PowerShell):
 ```powershell
-powershell -c "irm [https://astral.sh/uv/install.ps1](https://astral.sh/uv/install.ps1) | iex"
+powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 ```
 
