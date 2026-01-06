@@ -8,3 +8,5 @@ __pycache__/
 # Allow data files for GitHub analysis
 !data/*.csv
 !data/*.gpkg
+*.gpkg
+*.tiff.aux.xml

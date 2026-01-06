@@ -29,6 +29,7 @@ This project uses **[uv](https://github.com/astral-sh/uv)** for high-speed depen
 ### Prerequisites
 
 1. **Install uv** (PowerShell):
+
 ```powershell
 powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 
@@ -36,13 +37,12 @@ powershell -c "irm https://astral.sh/uv/install.ps1 | iex"
 
 
 2. **Clone the repository:**
+
 ```bash
 git clone https://github.com/SteffanDavies/spotlite-insar-sloperisk.git
 
 cd spotlite-insar-sloperisk
 ```
-
-
 
 ### Initialize Environment
 
@@ -79,8 +79,8 @@ You can run the entire analysis in an isolated container without installing Pyth
 docker build -t slope-risk-app .
 ```
 
-
 2. **Run the Container:**
+
 Map your local `data` folder to the container so it can read/write files:
 **PowerShell (Windows):**
 
