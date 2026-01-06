@@ -1,6 +1,4 @@
-Here is the cleaned and properly formatted Markdown version of your README file.
 
-```markdown
 # Spotlite InSAR Slope Risk Analysis
 
 A modular Python framework for analyzing InSAR displacement data to assess slope stability risks. This tool uses machine learning models (XGBoost, Random Forest, etc.) to predict ground movement and clustering algorithms (K-Means, PCA) to classify risk levels (A-E).
@@ -39,9 +37,9 @@ powershell -c "irm [https://astral.sh/uv/install.ps1](https://astral.sh/uv/insta
 
 2. **Clone the repository:**
 ```bash
-git clone [https://github.com/SteffanDavies/spotlite-insar-sloperisk.git](https://github.com/SteffanDavies/spotlite-insar-sloperisk.git)
-cd spotlite-insar-sloperisk
+git clone https://github.com/SteffanDavies/spotlite-insar-sloperisk.git
 
+cd spotlite-insar-sloperisk
 ```
 
 
@@ -52,7 +50,6 @@ Run these commands to set up the environment and install all required libraries:
 
 ```bash
 uv sync
-
 ```
 
 ## 📊 Usage
@@ -70,7 +67,6 @@ Execute the main script using `uv`:
 
 ```bash
 uv run main.py
-
 ```
 
 ## 🐳 Running with Docker
@@ -78,29 +74,22 @@ uv run main.py
 You can run the entire analysis in an isolated container without installing Python locally.
 
 1. **Build the Image:**
+
 ```bash
 docker build -t slope-risk-app .
-
 ```
 
 
 2. **Run the Container:**
 Map your local `data` folder to the container so it can read/write files:
 **PowerShell (Windows):**
+
 ```powershell
 docker run -v ${PWD}/data:/app/data slope-risk-app
-
 ```
-
 
 **Bash (Linux/Mac):**
+
 ```bash
 docker run -v $(pwd)/data:/app/data slope-risk-app
-
-```
-
-
-
-```
-
 ```
